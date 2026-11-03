@@ -1,0 +1,53 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xhtml="http://www.w3.org/1999/xhtml"
+     width="100%" height="100%"
+     viewBox="0 0 1200 800">
+
+  <foreignObject x="0" y="0" width="1200" height="800">
+    <xhtml:html>
+      <xhtml:head>
+        <xhtml:meta charset="utf-8"/>
+        <xhtml:meta name="viewport"
+                    content="width=device-width, initial-scale=1"/>
+        <xhtml:title>Timmy’s Math Work</xhtml:title>
+        <xhtml:style>
+          html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+        </xhtml:style>
+      </xhtml:head>
+      <xhtml:body>
+        <xhtml:script>
+          const fileUrl =
+            "https://cdn.jsdelivr.net/gh/Rocky11234321/TImmysmathworkAutoupdate@main/pureauratimmythingy-2.html";
+
+          async function loadLatest() {
+            const response = await fetch(
+              fileUrl + "?update=" + Date.now()
+            );
+
+            if (!response.ok) {
+              document.body.textContent =
+                `Could not load the page (HTTP ${response.status}).`;
+              return;
+            }
+
+            const html = await response.text();
+            document.open();
+            document.write(html);
+            document.close();
+          }
+
+          loadLatest().catch(() => {
+            document.body.textContent =
+              "Could not load the page from jsDelivr. Try again later.";
+          });
+        </xhtml:script>
+      </xhtml:body>
+    </xhtml:html>
+  </foreignObject>
+</svg>
